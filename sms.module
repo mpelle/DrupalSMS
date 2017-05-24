@@ -1,0 +1,90 @@
+<?php
+
+
+function sms_menu(){
+
+	//create a block page that contains nexmo administration links.
+	$items['admin/config/SMS'] = array(
+		'title' => 'Nexmo SMS',
+		'description' => 'Configure Nexmo SMS',
+		'position' => 'right',
+		'weight' => 100,
+		'page callback' => 'system_admin_menu_block_page',
+		'access arguments' => array('administer site configuration'),
+		'file' => 'system.admin.inc',
+		'file path' => drupal_get_path('module', 'system'),
+		
+	);
+
+	
+	$items['admin/config/nexmo/configuration'] = array(
+		'title' => 'Configure Nexmo Account',
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('nexmo_config_form'),
+		'access arguments' => array('administer site configuration'),
+		'file' => 'nexmo-config.inc',
+	);
+
+  
+  
+    	
+  $items['sms/inbound'] = array(
+    'title' => 'Nexmo SMS message receiver',
+    'page callback' => 'inbound_sms',
+    'access callback' => TRUE,
+	'file' => 'inbound-sms.inc',
+    );
+ 
+
+  
+ 
+	return $items;
+}
+
+  
+	
+	
+
+ 
+	/*$items['nexmo/sms'] = array(
+		'title' => 'inBound SMS',
+		//'page callback' => 'drupal_get_form',
+		//'page arguments' => array('nexmo_sms_form'),
+		'access arguments' => array('administer site configuration'),
+		'file' => 'inbound.sms.inc',
+	);*/
+
+	// $items['admin/config/nexmo/sentmessages'] = array(
+		
+	// );
+	
+	// $items['admin/config/nexmo/messagesettings'] = array(
+		
+	// );
+
+	// $items['admin/config/nexmo/receipts'] = array(
+		
+	// );
+
+
+/*function inbound_sms() {
+
+
+
+  if (!isset($_REQUEST['text'], $_REQUEST['msisdn'], $_REQUEST['to'])){
+	 
+  }else{
+
+	// Get the relevant data
+	$number = $_REQUEST['msisdn'];
+	$message = $_REQUEST['text'];
+	
+	
+            	
+	
+		print "response 200 OK";
+   }*/
+
+   
+
+

@@ -1,0 +1,5 @@
+name = Sms
+description = enables sending and receiving of SMS via the Nexmo SMS Gateway.
+package = SMS
+core = 7.x
+configure = admin/config/nexmo/configuration
